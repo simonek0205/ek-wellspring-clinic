@@ -9,38 +9,128 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as OmOssRouteImport } from './routes/om-oss'
+import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as BehandlingRouteImport } from './routes/behandling'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TjansterIndexRouteImport } from './routes/tjanster.index'
+import { Route as TjansterSlugRouteImport } from './routes/tjanster.$slug'
 
+const OmOssRoute = OmOssRouteImport.update({
+  id: '/om-oss',
+  path: '/om-oss',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BehandlingRoute = BehandlingRouteImport.update({
+  id: '/behandling',
+  path: '/behandling',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TjansterIndexRoute = TjansterIndexRouteImport.update({
+  id: '/tjanster/',
+  path: '/tjanster/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TjansterSlugRoute = TjansterSlugRouteImport.update({
+  id: '/tjanster/$slug',
+  path: '/tjanster/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/behandling': typeof BehandlingRoute
+  '/kontakt': typeof KontaktRoute
+  '/om-oss': typeof OmOssRoute
+  '/tjanster/$slug': typeof TjansterSlugRoute
+  '/tjanster/': typeof TjansterIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/behandling': typeof BehandlingRoute
+  '/kontakt': typeof KontaktRoute
+  '/om-oss': typeof OmOssRoute
+  '/tjanster/$slug': typeof TjansterSlugRoute
+  '/tjanster': typeof TjansterIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/behandling': typeof BehandlingRoute
+  '/kontakt': typeof KontaktRoute
+  '/om-oss': typeof OmOssRoute
+  '/tjanster/$slug': typeof TjansterSlugRoute
+  '/tjanster/': typeof TjansterIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/behandling'
+    | '/kontakt'
+    | '/om-oss'
+    | '/tjanster/$slug'
+    | '/tjanster/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/behandling'
+    | '/kontakt'
+    | '/om-oss'
+    | '/tjanster/$slug'
+    | '/tjanster'
+  id:
+    | '__root__'
+    | '/'
+    | '/behandling'
+    | '/kontakt'
+    | '/om-oss'
+    | '/tjanster/$slug'
+    | '/tjanster/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BehandlingRoute: typeof BehandlingRoute
+  KontaktRoute: typeof KontaktRoute
+  OmOssRoute: typeof OmOssRoute
+  TjansterSlugRoute: typeof TjansterSlugRoute
+  TjansterIndexRoute: typeof TjansterIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/om-oss': {
+      id: '/om-oss'
+      path: '/om-oss'
+      fullPath: '/om-oss'
+      preLoaderRoute: typeof OmOssRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/behandling': {
+      id: '/behandling'
+      path: '/behandling'
+      fullPath: '/behandling'
+      preLoaderRoute: typeof BehandlingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +138,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tjanster/': {
+      id: '/tjanster/'
+      path: '/tjanster'
+      fullPath: '/tjanster/'
+      preLoaderRoute: typeof TjansterIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tjanster/$slug': {
+      id: '/tjanster/$slug'
+      path: '/tjanster/$slug'
+      fullPath: '/tjanster/$slug'
+      preLoaderRoute: typeof TjansterSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BehandlingRoute: BehandlingRoute,
+  KontaktRoute: KontaktRoute,
+  OmOssRoute: OmOssRoute,
+  TjansterSlugRoute: TjansterSlugRoute,
+  TjansterIndexRoute: TjansterIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
