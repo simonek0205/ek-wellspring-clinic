@@ -1,10 +1,10 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { services } from "@/lib/services";
+import { services, type Service } from "@/lib/services";
 import { PageHeader } from "@/components/PageHeader";
 import { ArrowLeft, Check } from "lucide-react";
 
 export const Route = createFileRoute("/tjanster/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): { service: Service } => {
     const service = services.find((s) => s.slug === params.slug);
     if (!service) throw notFound();
     return { service };
