@@ -27,7 +27,7 @@ export const Route = createFileRoute("/tjanster/$slug")({
 });
 
 function ServiceDetail() {
-  const { service } = Route.useLoaderData();
+  const { service } = Route.useLoaderData() as { service: Service };
   return (
     <>
       <PageHeader eyebrow="Tjänst" title={service.title} lead={service.short} />
