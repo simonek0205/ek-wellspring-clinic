@@ -1,6 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-clinic.jpg";
 import logoAsset from "@/assets/logo.asset.json";
+import chiroHands from "@/assets/chiro-hands.jpg";
+import massageRoom from "@/assets/massage-hands.jpg";
+import spineIllustration from "@/assets/spine-illustration.jpg";
 import { services, priceList } from "@/lib/services";
 import { ArrowRight, Leaf, Activity, ShieldCheck, Sparkles } from "lucide-react";
 
