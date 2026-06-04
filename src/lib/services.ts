@@ -1,3 +1,8 @@
+import kiropraktikImg from "@/assets/service-kiropraktik.jpg";
+import massageImg from "@/assets/service-massage.jpg";
+import laserImg from "@/assets/service-laser.jpg";
+import rehabImg from "@/assets/service-rehab.jpg";
+
 export type Service = {
   slug: string;
   title: string;
@@ -5,7 +10,9 @@ export type Service = {
   what: string;
   how: string;
   benefits: string[];
+  image: string;
 };
+
 
 export const services: Service[] = [
   {
