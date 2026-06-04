@@ -44,13 +44,19 @@ function KontaktPage() {
               </li>
             ))}
           </ul>
-          <div className="bg-secondary p-2 min-h-[400px]">
-            <iframe
-              title="Karta över Ek Kiropraktik"
-              src="https://www.google.com/maps?q=S:ta+Annagatan+3,+532+32+Skara&output=embed"
-              className="w-full h-full min-h-[400px] border-0"
-              loading="lazy"
-            />
+          <div className="space-y-4">
+            <div>
+              <h3 className="font-display text-2xl text-navy mb-1">Vi finns här</h3>
+              <p className="text-muted-foreground text-sm">Vi delar lokal med Kiropraktor Jonas Svensson</p>
+            </div>
+            <div className="bg-secondary p-2 min-h-[400px]">
+              <iframe
+                title="Karta över Ek Kiropraktik"
+                src="https://www.google.com/maps?q=S:ta+Annagatan+3,+532+32+Skara&output=embed"
+                className="w-full h-full min-h-[400px] border-0"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>

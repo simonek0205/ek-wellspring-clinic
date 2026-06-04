@@ -113,7 +113,7 @@ function Index() {
           </ul>
 
           <p className="mt-8 text-cream/60 text-sm">
-            Medicinsk laser och rehab prissätts utifrån behandlingsupplägg – kontakta oss för mer information.
+            Medicinsk laser ingår som komplement vid kiropraktik nybesök/återbesök vid behov. Rehab prissätts utifrån behandlingsupplägg – kontakta oss för mer information.
           </p>
         </div>
       </section>

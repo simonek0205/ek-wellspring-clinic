@@ -81,4 +81,5 @@ export const priceList: PriceItem[] = [
   { label: "Kiropraktik – Återbesök", price: "700 kr" },
   { label: "Massage 30 min", price: "500 kr" },
   { label: "Massage 60 min", price: "900 kr" },
+  { label: "Medicinsk laser", price: "400 kr" },
 ];
