@@ -116,8 +116,9 @@ function Index() {
           </ul>
 
           <p className="mt-8 text-cream/60 text-sm">
-            Medicinsk laser ingår som komplement vid kiropraktik nybesök/återbesök vid behov. Rehab ingår i samtliga av våra tjänster och är alltid individanpassad för just dina behov. Rehab prissätts utifrån behandlingsupplägg – kontakta oss för mer information.
+            Medicinsk laser ingår som komplement vid kiropraktik nybesök/återbesök vid behov. Rehab ingår i samtliga av våra tjänster och är alltid individanpassad för just dina behov.
           </p>
+
 
           {/* Decorative spine illustration */}
           <img
@@ -148,25 +149,27 @@ function Index() {
           </div>
           <div>
             <p className="uppercase tracking-[0.3em] text-xs text-gold mb-3">Hantverket</p>
-            <h2 className="font-display text-4xl md:text-5xl text-navy mb-5">Trygga händer, tydlig plan</h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Varje behandling börjar med en noggrann undersökning och en plan som är anpassad efter just dig. Med en kombination av manuell behandling, rörlighet och individanpassad rehab arbetar vi för bestående resultat – inte bara snabb smärtlindring.
-            </p>
-            <div className="mt-8 grid grid-cols-3 gap-4 text-center">
-              <div className="border-t border-navy/15 pt-4">
-                <p className="font-display text-3xl text-navy">1:1</p>
-                <p className="text-xs uppercase tracking-wider text-muted-foreground mt-1">Personligt</p>
-              </div>
-              <div className="border-t border-navy/15 pt-4">
-                <p className="font-display text-3xl text-navy">4</p>
-                <p className="text-xs uppercase tracking-wider text-muted-foreground mt-1">Tjänster</p>
-              </div>
-              <div className="border-t border-navy/15 pt-4">
-                <p className="font-display text-3xl text-navy">Skara</p>
-                <p className="text-xs uppercase tracking-wider text-muted-foreground mt-1">Centralt</p>
-              </div>
-            </div>
+            <h2 className="font-display text-4xl md:text-5xl text-navy mb-8">Så går ett besök till</h2>
+            <ol className="space-y-6">
+              {[
+                { t: "Kontakt & tidsbokning", d: "Du hör av dig via telefon eller mail så hittar vi en tid som passar." },
+                { t: "Anamnes", d: "Vi tar din berättelse – sjukhistoria, besvär, vardag och målbild." },
+                { t: "Behandlingsplan", d: "Tillsammans skapar vi en plan som är anpassad efter just dina behov." },
+                { t: "Behandling", d: "Vi behandlar med de metoder som är lämpliga – kiropraktik, massage, laser eller rehab." },
+              ].map((step, i) => (
+                <li key={step.t} className="flex gap-5">
+                  <span className="flex-shrink-0 w-10 h-10 rounded-full bg-navy text-cream font-display flex items-center justify-center">
+                    {i + 1}
+                  </span>
+                  <div className="pt-1">
+                    <h3 className="font-display text-xl text-navy">{step.t}</h3>
+                    <p className="text-muted-foreground mt-1 leading-relaxed">{step.d}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
+
         </div>
       </section>
 

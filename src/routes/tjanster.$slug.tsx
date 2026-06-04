@@ -37,9 +37,19 @@ function ServiceDetail() {
             <ArrowLeft size={16} /> Alla tjänster
           </Link>
 
+          <img
+            src={service.image}
+            alt={service.title}
+            loading="lazy"
+            width={1024}
+            height={1024}
+            className="w-full h-72 md:h-96 object-cover mb-12"
+          />
+
           <article className="space-y-10">
             <div>
               <h2 className="font-display text-3xl text-navy mb-4">Vad är det?</h2>
+
               <p className="text-foreground/80 leading-relaxed text-lg">{service.what}</p>
             </div>
             <div>
