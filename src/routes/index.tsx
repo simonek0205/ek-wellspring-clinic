@@ -1,6 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-clinic.jpg";
 import logoAsset from "@/assets/logo.asset.json";
+import chiroHands from "@/assets/chiro-hands.jpg";
+import massageRoom from "@/assets/massage-hands.jpg";
+import spineIllustration from "@/assets/spine-illustration.jpg";
 import { services, priceList } from "@/lib/services";
 import { ArrowRight, Leaf, Activity, ShieldCheck, Sparkles } from "lucide-react";
 
@@ -113,8 +116,57 @@ function Index() {
           </ul>
 
           <p className="mt-8 text-cream/60 text-sm">
-            Medicinsk laser ingår som komplement vid kiropraktik nybesök/återbesök vid behov. Rehab prissätts utifrån behandlingsupplägg – kontakta oss för mer information.
+            Medicinsk laser ingår som komplement vid kiropraktik nybesök/återbesök vid behov. Rehab ingår i samtliga av våra tjänster och är alltid individanpassad för just dina behov. Rehab prissätts utifrån behandlingsupplägg – kontakta oss för mer information.
           </p>
+
+          {/* Decorative spine illustration */}
+          <img
+            src={spineIllustration}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            width={1024}
+            height={1280}
+            className="pointer-events-none absolute right-4 md:right-12 top-1/2 -translate-y-1/2 w-40 md:w-56 opacity-30 mix-blend-screen hidden sm:block"
+          />
+        </div>
+      </section>
+
+      {/* Image feature band */}
+      <section className="py-24 bg-background">
+        <div className="mx-auto max-w-7xl px-6 grid md:grid-cols-2 gap-10 items-center">
+          <div className="relative">
+            <div className="absolute -top-4 -left-4 w-24 h-24 border border-gold/40 hidden md:block" />
+            <img
+              src={chiroHands}
+              alt="Kiropraktor utför en behandling"
+              loading="lazy"
+              width={1280}
+              height={896}
+              className="relative w-full h-[28rem] object-cover"
+            />
+          </div>
+          <div>
+            <p className="uppercase tracking-[0.3em] text-xs text-gold mb-3">Hantverket</p>
+            <h2 className="font-display text-4xl md:text-5xl text-navy mb-5">Trygga händer, tydlig plan</h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Varje behandling börjar med en noggrann undersökning och en plan som är anpassad efter just dig. Med en kombination av manuell behandling, rörlighet och individanpassad rehab arbetar vi för bestående resultat – inte bara snabb smärtlindring.
+            </p>
+            <div className="mt-8 grid grid-cols-3 gap-4 text-center">
+              <div className="border-t border-navy/15 pt-4">
+                <p className="font-display text-3xl text-navy">1:1</p>
+                <p className="text-xs uppercase tracking-wider text-muted-foreground mt-1">Personligt</p>
+              </div>
+              <div className="border-t border-navy/15 pt-4">
+                <p className="font-display text-3xl text-navy">4</p>
+                <p className="text-xs uppercase tracking-wider text-muted-foreground mt-1">Tjänster</p>
+              </div>
+              <div className="border-t border-navy/15 pt-4">
+                <p className="font-display text-3xl text-navy">Skara</p>
+                <p className="text-xs uppercase tracking-wider text-muted-foreground mt-1">Centralt</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -142,17 +194,27 @@ function Index() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-background">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <h2 className="font-display text-4xl md:text-5xl text-navy">Redo att ta steget?</h2>
-          <p className="mt-5 text-muted-foreground leading-relaxed">
+      <section className="relative py-28 overflow-hidden">
+        <img
+          src={massageRoom}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          width={1280}
+          height={896}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/80 to-navy/70" />
+        <div className="relative mx-auto max-w-3xl px-6 text-center text-cream">
+          <h2 className="font-display text-4xl md:text-5xl">Redo att ta steget?</h2>
+          <p className="mt-5 text-cream/75 leading-relaxed">
             Boka tid via telefon eller mail – vi hjälper dig hitta en tid som passar.
           </p>
           <div className="mt-8 flex flex-wrap gap-4 justify-center">
-            <a href="tel:0793103546" className="bg-navy text-cream px-7 py-3.5 rounded-sm font-medium hover:bg-navy-deep transition-colors">
+            <a href="tel:0793103546" className="bg-cream text-navy px-7 py-3.5 rounded-sm font-medium hover:bg-gold transition-colors">
               0793-10 35 46
             </a>
-            <a href="mailto:info@ekkiropraktik.se" className="border border-navy/20 text-navy px-7 py-3.5 rounded-sm hover:bg-navy/5 transition-colors">
+            <a href="mailto:info@ekkiropraktik.se" className="border border-cream/30 text-cream px-7 py-3.5 rounded-sm hover:bg-cream/10 transition-colors">
               info@ekkiropraktik.se
             </a>
           </div>
