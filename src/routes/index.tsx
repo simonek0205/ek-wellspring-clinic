@@ -169,8 +169,6 @@ function Index() {
           </div>
         </div>
       </section>
-        </div>
-      </section>
 
       {/* Treatment focus */}
       <section className="py-24 bg-secondary">
