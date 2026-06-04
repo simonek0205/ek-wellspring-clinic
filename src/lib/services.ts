@@ -30,6 +30,7 @@ export const services: Service[] = [
       "Stelhet och nedsatt rörlighet",
       "Idrottsskador och belastningsbesvär",
     ],
+    image: kiropraktikImg,
   },
   {
     slug: "massage",
@@ -46,6 +47,7 @@ export const services: Service[] = [
       "Främjar rörlighet och kroppsmedvetenhet",
       "Bra komplement till kiropraktisk behandling",
     ],
+    image: massageImg,
   },
   {
     slug: "medicinsk-laser",
@@ -62,6 +64,7 @@ export const services: Service[] = [
       "Sårläkning och postoperativ återhämtning",
       "Idrottsskador i akut och läkande fas",
     ],
+    image: laserImg,
   },
   {
     slug: "rehab",
@@ -78,6 +81,7 @@ export const services: Service[] = [
       "Återgång till arbete och vardag",
       "Förebygga att besvären kommer tillbaka",
     ],
+    image: rehabImg,
   },
 ];
 
