@@ -194,17 +194,27 @@ function Index() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-background">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <h2 className="font-display text-4xl md:text-5xl text-navy">Redo att ta steget?</h2>
-          <p className="mt-5 text-muted-foreground leading-relaxed">
+      <section className="relative py-28 overflow-hidden">
+        <img
+          src={massageRoom}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          width={1280}
+          height={896}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/80 to-navy/70" />
+        <div className="relative mx-auto max-w-3xl px-6 text-center text-cream">
+          <h2 className="font-display text-4xl md:text-5xl">Redo att ta steget?</h2>
+          <p className="mt-5 text-cream/75 leading-relaxed">
             Boka tid via telefon eller mail – vi hjälper dig hitta en tid som passar.
           </p>
           <div className="mt-8 flex flex-wrap gap-4 justify-center">
-            <a href="tel:0793103546" className="bg-navy text-cream px-7 py-3.5 rounded-sm font-medium hover:bg-navy-deep transition-colors">
+            <a href="tel:0793103546" className="bg-cream text-navy px-7 py-3.5 rounded-sm font-medium hover:bg-gold transition-colors">
               0793-10 35 46
             </a>
-            <a href="mailto:info@ekkiropraktik.se" className="border border-navy/20 text-navy px-7 py-3.5 rounded-sm hover:bg-navy/5 transition-colors">
+            <a href="mailto:info@ekkiropraktik.se" className="border border-cream/30 text-cream px-7 py-3.5 rounded-sm hover:bg-cream/10 transition-colors">
               info@ekkiropraktik.se
             </a>
           </div>
