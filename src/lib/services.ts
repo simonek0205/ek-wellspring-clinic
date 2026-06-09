@@ -22,7 +22,7 @@ export const services: Service[] = [
     what:
       "Kiropraktik är en evidensbaserad form av manuell medicin som fokuserar på diagnostik, behandling och förebyggande av besvär från rörelseapparaten – muskler, leder, nerver och bindväv. Vid ditt nybesök gör vi en grundlig genomgång av din sjukhistoria, en klinisk undersökning samt ortopediska och neurologiska tester för att förstå orsaken till dina besvär.",
     how:
-      "Behandlingen anpassas individuellt och kan bestå av specifika ledjusteringar (manipulation), mobilisering, mjukdelsbehandling, traktion samt rådgivning kring träning, ergonomi och vardagliga vanor. Vid återbesök följer vi upp framstegen och justerar planen efter hur kroppen svarar.",
+      "Behandlingen anpassas individuellt och kan bestå av specifika ledjusteringar (manipulation), mobilisering, mjukdelsbehandling samt rådgivning kring träning, ergonomi och vardagliga vanor. Vid återbesök följer vi upp framstegen och justerar planen efter hur kroppen svarar.",
     benefits: [
       "Rygg-, nack- och ländryggssmärta",
       "Huvudvärk och migrän med ursprung i nacken",
