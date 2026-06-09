@@ -58,6 +58,7 @@ function ServiceDetail() {
             </div>
             <div>
               <h2 className="font-display text-3xl text-navy mb-4">Vad är det bra för?</h2>
+              <p className="text-foreground/70 leading-relaxed mb-5">Här är några exempel på besvär och tillstånd där behandlingen kan göra skillnad – listan är inte heltäckande, hör gärna av dig om du undrar över just dina besvär.</p>
               <ul className="space-y-3">
                 {service.benefits.map((b) => (
                   <li key={b} className="flex gap-3 items-start">
