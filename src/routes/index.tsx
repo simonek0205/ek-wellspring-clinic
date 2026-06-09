@@ -3,7 +3,7 @@ import heroImg from "@/assets/hero-clinic.jpg";
 import logoAsset from "@/assets/logo.asset.json";
 import chiroHands from "@/assets/chiro-hands.jpg";
 import massageRoom from "@/assets/massage-hands.jpg";
-import spineIllustration from "@/assets/spine-illustration.jpg";
+
 import { services, priceList } from "@/lib/services";
 import { ArrowRight, Leaf, Activity, ShieldCheck, Sparkles } from "lucide-react";
 
@@ -99,11 +99,10 @@ function Index() {
         <div className="pointer-events-none absolute bottom-0 right-0 w-96 h-96 rounded-full bg-gold/10 blur-3xl" />
 
         <div className="relative mx-auto max-w-5xl px-6">
-          <div className="flex items-center gap-3 mb-3">
+          <div className="flex items-center gap-3 mb-12">
             <Sparkles className="text-gold" size={18} />
             <p className="uppercase tracking-[0.3em] text-xs text-gold">Prislista</p>
           </div>
-          <h2 className="font-display text-4xl md:text-5xl mb-12">Tydliga priser, ingen överraskning</h2>
 
           <ul className="divide-y divide-cream/15 border-y border-cream/15">
             {priceList.map((p) => (
@@ -118,18 +117,6 @@ function Index() {
           <p className="mt-8 text-cream/60 text-sm">
             Medicinsk laser ingår som komplement vid kiropraktik nybesök/återbesök vid behov. Rehab ingår i samtliga av våra tjänster och är alltid individanpassad för just dina behov.
           </p>
-
-
-          {/* Decorative spine illustration */}
-          <img
-            src={spineIllustration}
-            alt=""
-            aria-hidden="true"
-            loading="lazy"
-            width={1024}
-            height={1280}
-            className="pointer-events-none absolute right-4 md:right-12 top-1/2 -translate-y-1/2 w-40 md:w-56 opacity-30 mix-blend-screen hidden sm:block"
-          />
         </div>
       </section>
 
