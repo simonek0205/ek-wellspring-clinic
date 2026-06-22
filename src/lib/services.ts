@@ -18,7 +18,7 @@ export const services: Service[] = [
   {
     slug: "kiropraktik",
     title: "Kiropraktik",
-    short: "Specialiserad utredning och behandling av besvär från muskler, leder och nervsystem.",
+    short: "Specialiserad undersökning och behandling av besvär från muskler, leder och nervsystem.",
     what:
       "Kiropraktik är en evidensbaserad form av manuell medicin som fokuserar på diagnostik, behandling och förebyggande av besvär från rörelseapparaten – muskler, leder, nerver och bindväv. Vid ditt nybesök gör vi en grundlig genomgång av din sjukhistoria, en klinisk undersökning samt ortopediska och neurologiska tester för att förstå orsaken till dina besvär.",
     how:
