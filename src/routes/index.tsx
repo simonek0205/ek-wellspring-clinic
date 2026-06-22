@@ -135,7 +135,6 @@ function Index() {
             />
           </div>
           <div>
-            <p className="uppercase tracking-[0.3em] text-xs text-gold mb-3">Hantverket</p>
             <h2 className="font-display text-4xl md:text-5xl text-navy mb-8">Så går ett besök till</h2>
             <ol className="space-y-6">
               {[
