@@ -37,7 +37,7 @@ function Index() {
 
         <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-36 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="uppercase tracking-[0.3em] text-xs text-cream/60 mb-5">Kiropraktor i Skara</p>
+            <p className="uppercase tracking-[0.3em] text-xs text-cream/60 mb-5">Din kiropraktor i skaraborg</p>
             <h1 className="font-display text-5xl md:text-7xl leading-[1.05] text-cream">
               Bättre funktion.<br/>Mindre smärta.<br/><em className="text-gold not-italic">Ökad livskvalitet.</em>
             </h1>
