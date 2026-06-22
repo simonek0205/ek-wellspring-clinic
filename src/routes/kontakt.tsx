@@ -18,7 +18,7 @@ function KontaktPage() {
     { icon: Phone, label: "Telefon", value: "0793-10 35 46", href: "tel:0793103546" },
     { icon: Mail, label: "E-post", value: "info@ekkiropraktik.se", href: "mailto:info@ekkiropraktik.se" },
     { icon: MapPin, label: "Adress", value: "S:ta Annagatan 3, 532 32 Skara" },
-    { icon: Clock, label: "Öppettider", value: "Måndag–Fredag 08:00–16:00" },
+    { icon: Clock, label: "Öppettider", value: "Måndag–Fredag 08:00–17:00" },
   ];
   return (
     <>
