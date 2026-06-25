@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
-import logoAsset from "@/assets/logo.asset.json";
+import simonPortrait from "@/assets/simon-ek.jpg.asset.json";
 
 export const Route = createFileRoute("/om-oss")({
   head: () => ({
@@ -18,8 +18,8 @@ function AboutPage() {
       <PageHeader eyebrow="Om oss" title="Personlig vård med bred kompetens" />
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-[1fr_2fr] gap-12 items-start">
-          <div className="bg-navy p-10 flex items-center justify-center">
-            <img src={logoAsset.url} alt="Ek Kiropraktik" className="w-full max-w-[240px]" />
+          <div className="overflow-hidden">
+            <img src={simonPortrait.url} alt="Simon Ek, kiropraktor" className="w-full h-auto object-cover" />
           </div>
           <div className="space-y-6 text-foreground/85 leading-relaxed text-lg">
             <p>
