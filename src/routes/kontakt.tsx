@@ -22,7 +22,7 @@ function KontaktPage() {
   ];
   return (
     <>
-      <PageHeader eyebrow="Kontakt" title="Hör av dig" lead="Vi hjälper dig gärna att hitta en tid som passar." />
+      <PageHeader title="Kontakt" lead="Vi hjälper dig gärna att hitta en tid som passar." />
       <section className="py-20">
         <div className="mx-auto max-w-5xl px-6 grid md:grid-cols-2 gap-10">
           <ul className="space-y-5">
