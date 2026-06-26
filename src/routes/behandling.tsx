@@ -24,7 +24,7 @@ const vanligaBesvar = [
 export default function BehandlingPage() {
   return (
     <>
-      <PageHeader eyebrow="Behandling" title="Vi möter dig där du är" lead="Oavsett om du har akuta besvär, presterar på elitnivå eller vill arbeta förebyggande." />
+      <PageHeader eyebrow="Behandling" title="Behandling anpassad efter dig" lead="Oavsett om du har akuta besvär, idrottsrelaterade skador eller vill arbeta förebyggande." />
 
       <section id="vanliga-besvar" className="py-20 scroll-mt-24">
         <div className="mx-auto max-w-6xl px-6">
