@@ -15,7 +15,7 @@ export const Route = createFileRoute("/om-oss")({
 function AboutPage() {
   return (
     <>
-      <PageHeader eyebrow="Om oss" title="Personlig vård med bred kompetens" />
+      <PageHeader title="Om oss" />
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-[1fr_2fr] gap-12 items-start">
           <div className="overflow-hidden">
@@ -26,8 +26,9 @@ function AboutPage() {
               Mitt mål är att hjälpa dig till en vardag med bättre funktion, minskad smärta och ökad livskvalitet. Jag tror på att varje patient är unik och därför anpassar jag undersökning, behandling och rådgivning efter dina individuella behov och målsättningar.
             </p>
             <p>
-              Kliniken drivs av mig, Simon Ek, legitimerad kiropraktor utbildad vid Skandinaviska Kiropraktorhögskolan i Solna. Efter fem års heltidsstudier inom anatomi, fysiologi, neurologi, sjukdomslära och diagnostik har jag byggt upp en bred kompetens inom undersökning och behandling av besvär från rörelseapparaten – muskler, leder och nervsystem.
+              Kliniken drivs av mig, Simon Ek, Kiropraktor utbildad vid Skandinaviska Kiropraktorhögskolan i Solna. Efter en femårig utbildning inom anatomi, fysiologi, neurologi, sjukdomslära och diagnostik har jag byggt upp en bred kompetens inom undersökning och behandling av besvär från rörelseapparaten – muskler, leder och nervsystem.
             </p>
+
             <p>
               Jag har särskild kompetens inom det muskuloskeletala systemet och arbetar dagligen med besvär som påverkar muskler, leder, nerver och andra mjukdelsstrukturer. Genom en noggrann klinisk bedömning strävar jag efter att förstå orsaken bakom dina besvär och skapa en behandlingsplan som är anpassad just för dig.
             </p>
