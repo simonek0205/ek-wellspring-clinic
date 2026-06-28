@@ -26,7 +26,7 @@ function AboutPage() {
               Mitt mål är att hjälpa dig till en vardag med bättre funktion, minskad smärta och ökad livskvalitet. Jag tror på att varje patient är unik och därför anpassar jag undersökning, behandling och rådgivning efter dina individuella behov och målsättningar.
             </p>
             <p>
-              Kliniken drivs av mig, Simon Ek, Kiropraktor utbildad vid Skandinaviska Kiropraktorhögskolan i Solna. Efter en femårig utbildning inom anatomi, fysiologi, neurologi, sjukdomslära och diagnostik har jag byggt upp en bred kompetens inom undersökning och behandling av besvär från rörelseapparaten – muskler, leder och nervsystem.
+              Kliniken drivs av mig, Simon Ek, kiropraktor utbildad vid Skandinaviska Kiropraktorhögskolan i Solna. Efter en femårig utbildning inom anatomi, fysiologi, neurologi, sjukdomslära och diagnostik har jag byggt upp en bred kompetens inom undersökning och behandling av besvär från rörelseapparaten – muskler, leder och nervsystem.
             </p>
 
             <p>
