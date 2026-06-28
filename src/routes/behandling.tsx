@@ -15,9 +15,9 @@ export const Route = createFileRoute("/behandling")({
 const vanligaBesvar = [
   { title: "Ländryggssmärta", text: "En av de vanligaste anledningarna att söka kiropraktor. Vi utreder orsaken – diskbesvär, facettledssmärta eller muskulära obalanser – och anpassar behandling med justering, mobilisering och övningar." },
   { title: "Nackont och stelhet", text: "Ofta kopplat till stillasittande, stress eller dåliga sovställningar. Behandling kombinerar manuell terapi med rådgivning kring ergonomi och rörelse." },
-  { title: "Huvudvärk & spänningshuvudvärk", text: "Många huvudvärksformer har sitt ursprung i nacken. Genom att behandla underliggande spänningar och ledrörlighet kan vi minska både intensitet och frekvens." },
-  { title: "Ischias och utstrålande smärta", text: "Smärta som strålar ner i benet kan ha flera orsaker. Vi gör en noggrann neurologisk bedömning och behandlar både nerv och omkringliggande strukturer." },
-  { title: "Axel- och skulderbesvär", text: "Impingement, frusen skuldra eller överbelastning – vi utreder och behandlar tillsammans med riktad rehabträning." },
+  { title: "Huvudvärk- och spänningshuvudvärk", text: "Många huvudvärksformer har sitt ursprung i nacken. Genom att behandla underliggande spänningar och ledrörlighet kan vi minska både intensitet och frekvens." },
+  { title: "Ischias och utstrålande smärta", text: "Smärta som strålar ner i benet kan ha flera orsaker. Vi gör en noggrann neurologisk bedömning och behandlar både nerver och omkringliggande strukturer." },
+  { title: "Axel- och skulderbesvär", text: "Impingement, Frozen shoulder eller överbelastning – vi utreder och behandlar tillsammans med riktad rehabträning." },
   { title: "Höft- och knäbesvär", text: "Belastningsskador, artros och felställningar. Behandling som kombinerar mjukdelsarbete, ledjustering och stärkande övningar." },
 ];
 
