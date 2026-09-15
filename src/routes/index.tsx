@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-clinic.jpg";
-import clinicRoom from "@/assets/clinic-room.png.asset.json";
+import clinicRoom from "@/assets/clinic-room.png";
 import chiroHands from "@/assets/chiro-hands.jpg";
 import massageRoom from "@/assets/massage-hands.jpg";
 
@@ -54,7 +54,7 @@ function Index() {
             </div>
           </div>
           <div className="hidden md:flex justify-center">
-            <img src={clinicRoom.url} alt="Behandlingsrum hos Ek Kiropraktik" className="w-80 h-80 object-cover rounded-sm shadow-2xl" />
+            <img src={clinicRoom} alt="Behandlingsrum hos Ek Kiropraktik" className="w-80 h-80 object-cover rounded-sm shadow-2xl" />
           </div>
         </div>
       </section>
