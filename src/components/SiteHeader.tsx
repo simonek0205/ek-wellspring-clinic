@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import logoAsset from "@/assets/logo.asset.json";
+import logoAsset from  "@/assets/ek-kiropraktik-logo.jpg";
 
 const links = [
   { to: "/", label: "Hem" },
