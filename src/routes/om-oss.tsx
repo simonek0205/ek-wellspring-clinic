@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
-import simonPortrait from "@/assets/simon-ek.jpg.asset.json";
+import simonPortrait from "@/assets/simon-ek.jpg";
 
 export const Route = createFileRoute("/om-oss")({
   head: () => ({
@@ -19,7 +19,7 @@ function AboutPage() {
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-[1fr_2fr] gap-12 items-start">
           <div className="overflow-hidden">
-            <img src={simonPortrait.url} alt="Simon Ek, kiropraktor" className="w-full h-auto object-cover" />
+            <img src={simonPortrait} alt="Simon Ek, kiropraktor" className="w-full h-auto object-cover" />
           </div>
           <div className="space-y-6 text-foreground/85 leading-relaxed text-lg">
             <p>
