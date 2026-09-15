@@ -1,12 +1,12 @@
 import { Link } from "@tanstack/react-router";
-import logoAsset from "@/assets/logo.asset.json";
+import logoAsset from "@/assets/ek-kiropraktik-logo.jpg";
 
 export function SiteFooter() {
   return (
     <footer className="bg-navy-deep text-cream/80 mt-24">
       <div className="mx-auto max-w-7xl px-6 py-16 grid gap-12 md:grid-cols-3">
         <div>
-          <img src={logoAsset.url} alt="Ek Kiropraktik" className="h-20 w-20 object-contain mb-4" />
+         <img src={logoAsset} alt="Ek Kiropraktik" className="h-20 w-20 object-contain mb-4" />
           <p className="text-sm leading-relaxed text-cream/60 max-w-xs">
             En personlig kiropraktorklinik i Skara för bättre funktion, mindre smärta och ökad livskvalitet.
           </p>
