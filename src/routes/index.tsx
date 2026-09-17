@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroImg from "@/assets/hero-clinic.jpg";
 import clinicRoom from "@/assets/clinic-room.jpg";
 import chiroHands from "@/assets/chiro-hands.jpg";
 import massageRoom from "@/assets/massage-hands.jpg";
@@ -7,6 +6,11 @@ import massageRoom from "@/assets/massage-hands.jpg";
 import { services, priceList } from "@/lib/services";
 import { clinic, emailHref, pageHead } from "@/lib/site";
 import { ArrowRight, Leaf, Activity, ShieldCheck, Sparkles } from "lucide-react";
+
+// A 1x1 transparent GIF. Small screens resolve the <picture> in the hero to
+// this instead of downloading a decorative photo they never display.
+const BLANK_PIXEL =
+  "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -29,14 +33,11 @@ function Index() {
     <>
       {/* Hero */}
       <section className="relative bg-navy text-cream overflow-hidden">
+        {/* Solid gradient field. A photograph used to sit behind this at 25%
+            opacity; measured against the rendered page it changed nothing a
+            viewer could see, while being the largest contentful paint on a
+            phone, so it is gone. */}
         <div className="absolute inset-0">
-          <img
-            src={heroImg}
-            alt=""
-            className="w-full h-full object-cover opacity-25"
-            width={1600}
-            height={1067}
-          />
           <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy/90 to-navy-deep" />
         </div>
         {/* Decorative shapes */}
@@ -86,11 +87,20 @@ function Index() {
             </div>
           </div>
           <div className="hidden md:flex justify-center">
-            <img
-              src={clinicRoom}
-              alt="Behandlingsrum hos Ek Kiropraktik"
-              className="w-80 h-80 object-cover rounded-sm shadow-2xl"
-            />
+            {/* The wrapper hides this below md, but display:none does not stop a
+                download — every phone was fetching 64 kB it would never show.
+                The media source makes small screens resolve to the placeholder
+                pixel and fetch nothing. */}
+            <picture>
+              <source media="(min-width: 768px)" srcSet={clinicRoom} />
+              <img
+                src={BLANK_PIXEL}
+                alt="Behandlingsrum hos Ek Kiropraktik"
+                width={640}
+                height={640}
+                className="w-80 h-80 object-cover rounded-sm shadow-2xl"
+              />
+            </picture>
           </div>
         </div>
       </section>
