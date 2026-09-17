@@ -31,8 +31,15 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <h4 className="font-display text-lg text-cream mb-4">Navigera</h4>
-          <ul className="space-y-2 text-sm">
+          <h4 className="font-display text-lg text-cream mb-4" id="footer-nav-heading">
+            Navigera
+          </h4>
+          <ul className="space-y-2 text-sm" aria-labelledby="footer-nav-heading">
+            <li>
+              <Link to="/" className="hover:text-cream">
+                Hem
+              </Link>
+            </li>
             <li>
               <Link to="/tjanster" className="hover:text-cream">
                 Våra tjänster
