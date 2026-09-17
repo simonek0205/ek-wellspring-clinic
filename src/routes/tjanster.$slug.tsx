@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { services, type Service } from "@/lib/services";
+import { clinic, emailHref } from "@/lib/site";
 import { PageHeader } from "@/components/PageHeader";
 import { ArrowLeft, Check } from "lucide-react";
 
@@ -20,7 +21,9 @@ export const Route = createFileRoute("/tjanster/$slug")({
   notFoundComponent: () => (
     <div className="py-32 text-center">
       <h1 className="font-display text-3xl text-navy">Tjänsten kunde inte hittas</h1>
-      <Link to="/tjanster" className="mt-6 inline-block text-navy underline">Tillbaka till tjänster</Link>
+      <Link to="/tjanster" className="mt-6 inline-block text-navy underline">
+        Tillbaka till tjänster
+      </Link>
     </div>
   ),
   component: ServiceDetail,
@@ -33,7 +36,10 @@ function ServiceDetail() {
       <PageHeader eyebrow="Tjänst" title={service.title} lead={service.short} />
       <section className="py-20">
         <div className="mx-auto max-w-3xl px-6">
-          <Link to="/tjanster" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-navy mb-10">
+          <Link
+            to="/tjanster"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-navy mb-10"
+          >
             <ArrowLeft size={16} /> Alla tjänster
           </Link>
 
@@ -41,8 +47,8 @@ function ServiceDetail() {
             src={service.image}
             alt={service.title}
             loading="lazy"
-            width={1024}
-            height={1024}
+            width={900}
+            height={900}
             className="w-full h-72 md:h-96 object-cover mb-12"
           />
 
@@ -58,7 +64,10 @@ function ServiceDetail() {
             </div>
             <div>
               <h2 className="font-display text-3xl text-navy mb-4">Vad är det bra för?</h2>
-              <p className="text-foreground/70 leading-relaxed mb-5">Här är några exempel på besvär och tillstånd där behandlingen kan göra skillnad – listan är inte heltäckande, hör gärna av dig om du undrar över just dina besvär.</p>
+              <p className="text-foreground/70 leading-relaxed mb-5">
+                Här är några exempel på besvär och tillstånd där behandlingen kan göra skillnad –
+                listan är inte heltäckande, hör gärna av dig om du undrar över just dina besvär.
+              </p>
               <ul className="space-y-3">
                 {service.benefits.map((b) => (
                   <li key={b} className="flex gap-3 items-start">
@@ -74,8 +83,18 @@ function ServiceDetail() {
             <h3 className="font-display text-2xl text-navy mb-2">Boka en tid</h3>
             <p className="text-muted-foreground mb-5">Ring eller mejla så hjälper vi dig vidare.</p>
             <div className="flex flex-wrap gap-3">
-              <a href="tel:0793103546" className="bg-navy text-cream px-6 py-3 rounded-sm hover:bg-navy-deep transition-colors">0793-10 35 46</a>
-              <a href="mailto:info@ekkiropraktik.se" className="border border-navy/20 text-navy px-6 py-3 rounded-sm hover:bg-navy/5 transition-colors">info@ekkiropraktik.se</a>
+              <a
+                href={clinic.phone.href}
+                className="bg-navy text-cream px-6 py-3 rounded-sm hover:bg-navy-deep transition-colors"
+              >
+                {clinic.phone.display}
+              </a>
+              <a
+                href={emailHref}
+                className="border border-navy/20 text-navy px-6 py-3 rounded-sm hover:bg-navy/5 transition-colors"
+              >
+                {clinic.email}
+              </a>
             </div>
           </div>
         </div>
