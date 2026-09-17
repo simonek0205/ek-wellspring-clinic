@@ -117,3 +117,26 @@ export function serviceJsonLd(service: { slug: string; title: string; short: str
     provider: { "@id": absoluteUrl("/#clinic") },
   };
 }
+
+/**
+ * Breadcrumbs for a treatment page. Google renders these in place of the raw
+ * URL in a result, and they tell it how the treatment pages sit under
+ * /tjanster rather than reading as nine unrelated pages.
+ */
+export function breadcrumbJsonLd(service: { slug: string; title: string }) {
+  const trail = [
+    { name: "Hem", path: "/" },
+    { name: "Våra tjänster", path: "/tjanster" },
+    { name: service.title, path: `/tjanster/${service.slug}` },
+  ];
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: trail.map((step, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: step.name,
+      item: absoluteUrl(step.path),
+    })),
+  };
+}

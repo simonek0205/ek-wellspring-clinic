@@ -110,7 +110,7 @@ function Index() {
 
         <div className="relative mx-auto max-w-7xl px-6">
           <div className="max-w-2xl mb-14">
-            <p className="uppercase tracking-[0.3em] text-xs text-gold mb-3">Våra tjänster</p>
+            <p className="uppercase tracking-[0.3em] text-xs text-gold-ink mb-3">Våra tjänster</p>
             <h2 className="font-display text-4xl md:text-5xl text-navy">
               Behandling anpassad efter dig
             </h2>
@@ -230,7 +230,7 @@ function Index() {
       <section className="py-24 bg-secondary">
         <div className="mx-auto max-w-7xl px-6">
           <div className="max-w-2xl mb-14">
-            <p className="uppercase tracking-[0.3em] text-xs text-gold mb-3">Behandling</p>
+            <p className="uppercase tracking-[0.3em] text-xs text-gold-ink mb-3">Behandling</p>
             <h2 className="font-display text-4xl md:text-5xl text-navy">Vi hjälper dig vidare</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">

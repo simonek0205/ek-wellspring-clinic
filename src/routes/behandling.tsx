@@ -57,7 +57,7 @@ function BehandlingPage() {
 
       <section id="vanliga-besvar" className="py-20 scroll-mt-24">
         <div className="mx-auto max-w-6xl px-6">
-          <p className="uppercase tracking-[0.3em] text-xs text-gold mb-3">01</p>
+          <p className="uppercase tracking-[0.3em] text-xs text-gold-ink mb-3">01</p>
           <h2 className="font-display text-4xl md:text-5xl text-navy mb-4">Vanliga besvär</h2>
           <p className="text-muted-foreground max-w-2xl leading-relaxed mb-12">
             De flesta som besöker oss söker hjälp för besvär från muskler, leder eller nervsystem.
@@ -77,7 +77,7 @@ function BehandlingPage() {
       <section id="idrottare" className="py-20 bg-secondary scroll-mt-24">
         <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-12 items-start">
           <div>
-            <p className="uppercase tracking-[0.3em] text-xs text-gold mb-3">02</p>
+            <p className="uppercase tracking-[0.3em] text-xs text-gold-ink mb-3">02</p>
             <h2 className="font-display text-4xl md:text-5xl text-navy mb-4">Idrottare</h2>
             <p className="text-foreground/80 leading-relaxed text-lg">
               Som aktiv idrottare ställs höga krav på kroppen. Kiropraktik och massage kan hjälpa
@@ -99,7 +99,7 @@ function BehandlingPage() {
               "Rehabilitering efter idrottsskador",
             ].map((p) => (
               <li key={p} className="flex gap-3 items-start bg-card p-5 border-l-2 border-gold">
-                <Check className="text-gold mt-0.5 flex-shrink-0" size={20} />
+                <Check className="text-gold-ink mt-0.5 flex-shrink-0" size={20} />
                 <span>{p}</span>
               </li>
             ))}
@@ -119,13 +119,13 @@ function BehandlingPage() {
               "Tidig upptäckt av begynnande obalanser",
             ].map((p) => (
               <li key={p} className="flex gap-3 items-start bg-card p-5 border-l-2 border-gold">
-                <Check className="text-gold mt-0.5 flex-shrink-0" size={20} />
+                <Check className="text-gold-ink mt-0.5 flex-shrink-0" size={20} />
                 <span>{p}</span>
               </li>
             ))}
           </ul>
           <div>
-            <p className="uppercase tracking-[0.3em] text-xs text-gold mb-3">03</p>
+            <p className="uppercase tracking-[0.3em] text-xs text-gold-ink mb-3">03</p>
             <h2 className="font-display text-4xl md:text-5xl text-navy mb-4">Förebyggande</h2>
             <p className="text-foreground/80 leading-relaxed text-lg">
               Att vänta tills smärtan blir påtaglig är inte alltid det bästa. Regelbunden

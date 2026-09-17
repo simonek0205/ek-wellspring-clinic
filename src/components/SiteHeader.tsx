@@ -32,7 +32,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 bg-navy text-cream/90 border-b border-cream/10">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <img src={logoAsset} alt={clinic.name} className="h-12 w-12 object-contain" />
+          <img src={logoAsset} alt="" className="h-12 w-12 object-contain" />
           <span className="font-display text-xl tracking-wide text-cream">{clinic.name}</span>
         </Link>
         <nav

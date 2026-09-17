@@ -8,6 +8,7 @@
   --color-navy: var(--navy);
   --color-navy-deep: var(--navy-deep);
   --color-gold: var(--gold);
+  --color-gold-ink: var(--gold-ink);
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "Inter", system-ui, sans-serif;
 }
@@ -97,6 +98,9 @@
   --navy: oklch(0.22 0.045 260);
   --navy-deep: oklch(0.16 0.04 260);
   --gold: oklch(0.72 0.08 70);
+  /* Gold is a highlight on navy. On the cream surfaces it only reached 2.4:1,
+   * so text and icons there use this darker tone, which clears 4.5:1 on both. */
+  --gold-ink: oklch(0.52 0.085 70);
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "Inter", system-ui, sans-serif;
   --chart-1: oklch(0.646 0.222 41.116);

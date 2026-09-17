@@ -48,7 +48,7 @@ function KontaktPage() {
                   {it.href ? (
                     <a
                       href={it.href}
-                      className="font-display text-xl text-navy hover:text-gold transition-colors"
+                      className="font-display text-xl text-navy hover:text-gold-ink transition-colors"
                     >
                       {it.value}
                     </a>

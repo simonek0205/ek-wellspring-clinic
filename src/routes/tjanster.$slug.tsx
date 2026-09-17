@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { services, type Service } from "@/lib/services";
-import { clinic, emailHref, pageHead, serviceJsonLd } from "@/lib/site";
+import { breadcrumbJsonLd, clinic, emailHref, pageHead, serviceJsonLd } from "@/lib/site";
 import { PageHeader } from "@/components/PageHeader";
 import { ArrowLeft, Check } from "lucide-react";
 
@@ -16,8 +16,11 @@ export const Route = createFileRoute("/tjanster/$slug")({
     const head = pageHead(`/tjanster/${service.slug}`);
     return {
       meta: [
-        { title: `${service.title} – ${clinic.name}` },
-        { name: "description", content: service.short },
+        { title: `${service.title} i ${clinic.address.city} – ${clinic.name}` },
+        {
+          name: "description",
+          content: `${service.short} Boka tid hos ${clinic.name}, ${clinic.address.city}.`,
+        },
         ...head.meta,
       ],
       links: head.links,
@@ -25,6 +28,10 @@ export const Route = createFileRoute("/tjanster/$slug")({
         {
           type: "application/ld+json",
           children: JSON.stringify(serviceJsonLd(service)),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(breadcrumbJsonLd(service)),
         },
       ],
     };
@@ -82,7 +89,7 @@ function ServiceDetail() {
               <ul className="space-y-3">
                 {service.benefits.map((b) => (
                   <li key={b} className="flex gap-3 items-start">
-                    <Check className="text-gold mt-1 flex-shrink-0" size={20} />
+                    <Check className="text-gold-ink mt-1 flex-shrink-0" size={20} />
                     <span className="text-foreground/80 text-lg">{b}</span>
                   </li>
                 ))}

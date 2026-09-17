@@ -14,7 +14,7 @@ export function SiteFooter() {
           </p>
         </div>
         <div>
-          <h4 className="font-display text-lg text-cream mb-4">Kontakt</h4>
+          <h2 className="font-display text-lg text-cream mb-4">Kontakt</h2>
           <ul className="space-y-2 text-sm">
             <li>{addressLine}</li>
             <li>
@@ -31,9 +31,9 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <h4 className="font-display text-lg text-cream mb-4" id="footer-nav-heading">
+          <h2 className="font-display text-lg text-cream mb-4" id="footer-nav-heading">
             Navigera
-          </h4>
+          </h2>
           <ul className="space-y-2 text-sm" aria-labelledby="footer-nav-heading">
             <li>
               <Link to="/" className="hover:text-cream">
@@ -63,7 +63,7 @@ export function SiteFooter() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-cream/10 py-6 text-center text-xs text-cream/40">
+      <div className="border-t border-cream/10 py-6 text-center text-xs text-cream/60">
         © {new Date().getFullYear()} {clinic.name}. Alla rättigheter förbehållna.
       </div>
     </footer>
