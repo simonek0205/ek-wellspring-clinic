@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { Phone, Mail, MapPin, Clock, User } from "lucide-react";
-import { addressLine, clinic, emailHref, mapsEmbedUrl, pageHead } from "@/lib/site";
+import { addressLine, clinic, emailHref, pageHead } from "@/lib/site";
+import { MapEmbed } from "@/components/MapEmbed";
 
 export const Route = createFileRoute("/kontakt")({
   head: () => ({
@@ -65,13 +66,8 @@ function KontaktPage() {
                 Vi delar lokal med {clinic.sharesPremisesWith}
               </p>
             </div>
-            <div className="bg-secondary p-2 min-h-[400px]">
-              <iframe
-                title={`Karta över ${clinic.name}`}
-                src={mapsEmbedUrl}
-                className="w-full h-full min-h-[400px] border-0"
-                loading="lazy"
-              />
+            <div className="min-h-[400px] border border-border">
+              <MapEmbed />
             </div>
           </div>
         </div>
