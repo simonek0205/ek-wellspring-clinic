@@ -6,6 +6,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -36,10 +37,12 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
-  console.error(error);
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   const router = useRouter();
+  // Reporting is a side effect — it belongs in an effect, not the render body,
+  // which ran it again on every re-render.
   useEffect(() => {
+    console.error(error);
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
 
@@ -52,7 +55,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
-            onClick={() => { router.invalidate(); reset(); }}
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
             className="rounded-md bg-navy px-4 py-2 text-sm font-medium text-cream hover:bg-navy-deep"
           >
             Försök igen
@@ -72,15 +78,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Ek Kiropraktik – Kiropraktor i Skara" },
-      { name: "description", content: "Ek Kiropraktik i Skara erbjuder kiropraktik, massage och medicinsk laser för bättre funktion och minskad smärta." },
+      {
+        name: "description",
+        content:
+          "Ek Kiropraktik i Skara erbjuder kiropraktik, massage och medicinsk laser för bättre funktion och minskad smärta.",
+      },
       { property: "og:title", content: "Ek Kiropraktik – Kiropraktor i Skara" },
-      { property: "og:description", content: "Kiropraktik, massage och medicinsk laser i hjärtat av Skara." },
+      {
+        property: "og:description",
+        content: "Kiropraktik, massage och medicinsk laser i hjärtat av Skara.",
+      },
       { property: "og:type", content: "website" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap",
+      },
       { rel: "stylesheet", href: appCss },
     ],
   }),
@@ -93,7 +109,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="sv">
-      <head><HeadContent /></head>
+      <head>
+        <HeadContent />
+      </head>
       <body>
         {children}
         <Scripts />
