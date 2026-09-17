@@ -7,7 +7,10 @@ export const Route = createFileRoute("/tjanster/")({
   head: () => ({
     meta: [
       { title: "Våra tjänster – Ek Kiropraktik" },
-      { name: "description", content: "Kiropraktik, massage och medicinsk laser hos Ek Kiropraktik i Skara." },
+      {
+        name: "description",
+        content: "Kiropraktik, massage och medicinsk laser hos Ek Kiropraktik i Skara.",
+      },
     ],
   }),
   component: ServicesPage,
@@ -16,7 +19,11 @@ export const Route = createFileRoute("/tjanster/")({
 function ServicesPage() {
   return (
     <>
-      <PageHeader eyebrow="Tjänster" title="Våra tjänster" lead="En personlig behandling, anpassad efter dina individuella behov och målsättningar." />
+      <PageHeader
+        eyebrow="Tjänster"
+        title="Våra tjänster"
+        lead="En personlig behandling, anpassad efter dina individuella behov och målsättningar."
+      />
       <section className="py-20">
         <div className="mx-auto max-w-5xl px-6 grid gap-6">
           {services.map((s) => (

@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import logoAsset from  "@/assets/ek-kiropraktik-logo.jpg";
+import logoAsset from "@/assets/ek-kiropraktik-logo.jpg";
 
 const links = [
   { to: "/", label: "Hem" },
@@ -33,11 +33,7 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <button
-          className="md:hidden text-cream"
-          onClick={() => setOpen(!open)}
-          aria-label="Meny"
-        >
+        <button className="md:hidden text-cream" onClick={() => setOpen(!open)} aria-label="Meny">
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>

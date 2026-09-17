@@ -13,16 +13,14 @@ export type Service = {
   image: string;
 };
 
-
 export const services: Service[] = [
   {
     slug: "kiropraktik",
     title: "Kiropraktik",
-    short: "Specialiserad undersökning och behandling av besvär från muskler, leder och nervsystem.",
-    what:
-      "Kiropraktik är en evidensbaserad form av manuell medicin som fokuserar på diagnostik, behandling och förebyggande av besvär från rörelseapparaten – muskler, leder, nerver och bindväv. Vid ditt nybesök gör vi en grundlig genomgång av din sjukhistoria, en klinisk undersökning samt ortopediska och neurologiska tester för att förstå orsaken till dina besvär.",
-    how:
-      "Behandlingen anpassas individuellt och kan bestå av specifika ledjusteringar (manipulation), mobilisering, mjukdelsbehandling samt rådgivning kring träning, ergonomi och vardagliga vanor. Vid återbesök följer vi upp framstegen och justerar planen efter hur kroppen svarar.",
+    short:
+      "Specialiserad undersökning och behandling av besvär från muskler, leder och nervsystem.",
+    what: "Kiropraktik är en evidensbaserad form av manuell medicin som fokuserar på diagnostik, behandling och förebyggande av besvär från rörelseapparaten – muskler, leder, nerver och bindväv. Vid ditt nybesök gör vi en grundlig genomgång av din sjukhistoria, en klinisk undersökning samt ortopediska och neurologiska tester för att förstå orsaken till dina besvär.",
+    how: "Behandlingen anpassas individuellt och kan bestå av specifika ledjusteringar (manipulation), mobilisering, mjukdelsbehandling samt rådgivning kring träning, ergonomi och vardagliga vanor. Vid återbesök följer vi upp framstegen och justerar planen efter hur kroppen svarar.",
     benefits: [
       "Rygg-, nack- och ländryggssmärta",
       "Huvudvärk och migrän med ursprung i nacken",
@@ -36,10 +34,8 @@ export const services: Service[] = [
     slug: "massage",
     title: "Massage",
     short: "Klassisk och medicinsk massage för spända muskler, återhämtning och välmående.",
-    what:
-      "Massage är en av de äldsta behandlingsformerna och används för att minska muskelspänningar, öka cirkulationen och främja återhämtning. Vi arbetar med både klassisk svensk massage och mer riktad medicinsk massage beroende på dina behov.",
-    how:
-      "Behandlingen anpassas efter dina besvär – från lättare avslappnande tekniker till djupare triggerpunktsbehandling och tvärfriktion. Massagen kombineras gärna med rådgivning kring tänjningar och rörlighet för bestående effekt.",
+    what: "Massage är en av de äldsta behandlingsformerna och används för att minska muskelspänningar, öka cirkulationen och främja återhämtning. Vi arbetar med både klassisk svensk massage och mer riktad medicinsk massage beroende på dina behov.",
+    how: "Behandlingen anpassas efter dina besvär – från lättare avslappnande tekniker till djupare triggerpunktsbehandling och tvärfriktion. Massagen kombineras gärna med rådgivning kring tänjningar och rörlighet för bestående effekt.",
     benefits: [
       "Minskar muskelspänningar och stelhet",
       "Förbättrar cirkulation och återhämtning",
@@ -53,10 +49,8 @@ export const services: Service[] = [
     slug: "medicinsk-laser",
     title: "Medicinsk laser",
     short: "Smärtlindrande och läkningsfrämjande lågnivålaser för senor, leder och muskler.",
-    what:
-      "Medicinsk laser (LLLT – Low Level Laser Therapy) använder ljus av en specifik våglängd för att stimulera cellernas energiproduktion. Det är en skonsam, smärtfri behandling utan biverkningar som accelererar läkningsprocesser i vävnaden.",
-    how:
-      "Lasersonden placeras direkt mot huden över det område som ska behandlas. En behandling tar några minuter och kan användas vid akuta såväl som långvariga besvär – ofta som komplement till annan behandling.",
+    what: "Medicinsk laser (LLLT – Low Level Laser Therapy) använder ljus av en specifik våglängd för att stimulera cellernas energiproduktion. Det är en skonsam, smärtfri behandling utan biverkningar som accelererar läkningsprocesser i vävnaden.",
+    how: "Lasersonden placeras direkt mot huden över det område som ska behandlas. En behandling tar några minuter och kan användas vid akuta såväl som långvariga besvär – ofta som komplement till annan behandling.",
     benefits: [
       "Sen- och muskelinflammationer (t.ex. tennisarmbåge, hälsporre)",
       "Artros och ledbesvär",
@@ -70,10 +64,8 @@ export const services: Service[] = [
     slug: "rehab",
     title: "Rehab",
     short: "Individuellt anpassad rehabilitering som hjälper dig tillbaka till full funktion.",
-    what:
-      "Rehab handlar om att återställa styrka, rörlighet och funktion efter skada, operation eller långvariga besvär. Vi kartlägger var du står idag, sätter realistiska mål och bygger en plan som möter dig på rätt nivå – oavsett om målet är att kunna gå smärtfritt, återgå till arbete eller tillbaka till idrott på elitnivå.",
-    how:
-      "Rehabiliteringen kombinerar manuell behandling med ett strukturerat och progressivt träningsprogram. Du får tydliga övningar att göra mellan besöken och vi följer upp regelbundet för att justera belastning och svårighetsgrad. Fokus ligger på kontrollerad progression, kvalitet i rörelsen och förebyggande av återfall.",
+    what: "Rehab handlar om att återställa styrka, rörlighet och funktion efter skada, operation eller långvariga besvär. Vi kartlägger var du står idag, sätter realistiska mål och bygger en plan som möter dig på rätt nivå – oavsett om målet är att kunna gå smärtfritt, återgå till arbete eller tillbaka till idrott på elitnivå.",
+    how: "Rehabiliteringen kombinerar manuell behandling med ett strukturerat och progressivt träningsprogram. Du får tydliga övningar att göra mellan besöken och vi följer upp regelbundet för att justera belastning och svårighetsgrad. Fokus ligger på kontrollerad progression, kvalitet i rörelsen och förebyggande av återfall.",
     benefits: [
       "Återhämtning efter idrottsskador",
       "Rehab efter operation",
