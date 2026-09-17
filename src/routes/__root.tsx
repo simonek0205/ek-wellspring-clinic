@@ -14,6 +14,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "../components/SiteHeader";
 import { SiteFooter } from "../components/SiteFooter";
+import { clinic, clinicJsonLd, ogImageUrl } from "../lib/site";
 
 function NotFoundComponent() {
   return (
@@ -89,6 +90,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content: "Kiropraktik, massage och medicinsk laser i hjärtat av Skara.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: ogImageUrl },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:locale", content: "sv_SE" },
+      { property: "og:site_name", content: clinic.name },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: ogImageUrl },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -98,6 +106,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap",
       },
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.ico", sizes: "any" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(clinicJsonLd()),
+      },
     ],
   }),
   shellComponent: RootShell,

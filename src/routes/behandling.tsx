@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { Check } from "lucide-react";
+import { pageHead } from "@/lib/site";
 
 export const Route = createFileRoute("/behandling")({
   head: () => ({
@@ -11,7 +12,9 @@ export const Route = createFileRoute("/behandling")({
         content:
           "Behandling vid vanliga besvär, för idrottare och förebyggande hos Ek Kiropraktik i Skara.",
       },
+      ...pageHead("/behandling").meta,
     ],
+    links: pageHead("/behandling").links,
   }),
   component: BehandlingPage,
 });

@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { services, type Service } from "@/lib/services";
-import { clinic, emailHref } from "@/lib/site";
+import { clinic, emailHref, pageHead, serviceJsonLd } from "@/lib/site";
 import { PageHeader } from "@/components/PageHeader";
 import { ArrowLeft, Check } from "lucide-react";
 
@@ -10,14 +10,25 @@ export const Route = createFileRoute("/tjanster/$slug")({
     if (!service) throw notFound();
     return { service };
   },
-  head: ({ loaderData }) => ({
-    meta: loaderData
-      ? [
-          { title: `${loaderData.service.title} – Ek Kiropraktik` },
-          { name: "description", content: loaderData.service.short },
-        ]
-      : [],
-  }),
+  head: ({ loaderData }) => {
+    if (!loaderData) return { meta: [] };
+    const { service } = loaderData;
+    const head = pageHead(`/tjanster/${service.slug}`);
+    return {
+      meta: [
+        { title: `${service.title} – ${clinic.name}` },
+        { name: "description", content: service.short },
+        ...head.meta,
+      ],
+      links: head.links,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(serviceJsonLd(service)),
+        },
+      ],
+    };
+  },
   notFoundComponent: () => (
     <div className="py-32 text-center">
       <h1 className="font-display text-3xl text-navy">Tjänsten kunde inte hittas</h1>

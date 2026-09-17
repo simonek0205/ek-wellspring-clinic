@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { services } from "@/lib/services";
 import { ArrowRight } from "lucide-react";
+import { pageHead } from "@/lib/site";
 
 export const Route = createFileRoute("/tjanster/")({
   head: () => ({
@@ -11,7 +12,9 @@ export const Route = createFileRoute("/tjanster/")({
         name: "description",
         content: "Kiropraktik, massage och medicinsk laser hos Ek Kiropraktik i Skara.",
       },
+      ...pageHead("/tjanster").meta,
     ],
+    links: pageHead("/tjanster").links,
   }),
   component: ServicesPage,
 });

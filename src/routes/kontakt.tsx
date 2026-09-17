@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { Phone, Mail, MapPin, Clock, User } from "lucide-react";
-import { addressLine, clinic, emailHref, mapsEmbedUrl } from "@/lib/site";
+import { addressLine, clinic, emailHref, mapsEmbedUrl, pageHead } from "@/lib/site";
 
 export const Route = createFileRoute("/kontakt")({
   head: () => ({
@@ -11,7 +11,9 @@ export const Route = createFileRoute("/kontakt")({
         name: "description",
         content: `Kontakta ${clinic.name} i ${clinic.address.city}. Telefon ${clinic.phone.display}, ${clinic.email}, ${clinic.address.street}.`,
       },
+      ...pageHead("/kontakt").meta,
     ],
+    links: pageHead("/kontakt").links,
   }),
   component: KontaktPage,
 });

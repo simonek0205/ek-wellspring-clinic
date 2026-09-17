@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import simonPortrait from "@/assets/simon-ek.jpg";
-import { clinic } from "@/lib/site";
+import { clinic, pageHead } from "@/lib/site";
 
 export const Route = createFileRoute("/om-oss")({
   head: () => ({
@@ -12,7 +12,9 @@ export const Route = createFileRoute("/om-oss")({
         content:
           "Ek Kiropraktik drivs av kiropraktor utbildad vid Skandinaviska Kiropraktorhögskolan. Personligt engagemang och professionellt bemötande.",
       },
+      ...pageHead("/om-oss").meta,
     ],
+    links: pageHead("/om-oss").links,
   }),
   component: AboutPage,
 });

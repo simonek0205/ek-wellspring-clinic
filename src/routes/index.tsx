@@ -5,7 +5,7 @@ import chiroHands from "@/assets/chiro-hands.jpg";
 import massageRoom from "@/assets/massage-hands.jpg";
 
 import { services, priceList } from "@/lib/services";
-import { clinic, emailHref } from "@/lib/site";
+import { clinic, emailHref, pageHead } from "@/lib/site";
 import { ArrowRight, Leaf, Activity, ShieldCheck, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -17,7 +17,9 @@ export const Route = createFileRoute("/")({
         content:
           "Personlig kiropraktorklinik i Skara. Kiropraktik, massage, medicinsk laser och rehab.",
       },
+      ...pageHead("/").meta,
     ],
+    links: pageHead("/").links,
   }),
   component: Index,
 });
