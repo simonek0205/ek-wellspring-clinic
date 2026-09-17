@@ -1,164 +1,190 @@
 # Ek Kiropraktik
 
-The website for **Ek Kiropraktik**, a chiropractic clinic in Skara run by Simon Ek.
+Webbplatsen för **Ek Kiropraktik**, en kiropraktorklinik i Skara som drivs av
+Simon Ek.
 
-**Live:** <https://ekkiropraktik.se> · **Language:** Swedish (`lang="sv"`)
+**Publik adress:** <https://ekkiropraktik.se> · **Språk:** svenska (`lang="sv"`)
 
-Five pages — home, treatments (with a page per treatment), what we treat, about,
-and contact. No database, no login, no forms: everything on the site is content
-that lives in this repository.
+Fem sidor — start, tjänster (med en sida per behandling), behandling, om oss och
+kontakt. Ingen databas, ingen inloggning, inga formulär: allt på webbplatsen är
+innehåll som ligger i det här kodförrådet.
 
-## Stack
+## Teknik
 
-|           |                                                                                                        |
-| --------- | ------------------------------------------------------------------------------------------------------ |
-| Framework | [TanStack Start](https://tanstack.com/start) — React with server-side rendering and file-based routing |
-| UI        | React 19, Tailwind CSS 4                                                                               |
-| Build     | Vite 7                                                                                                 |
-| Language  | TypeScript                                                                                             |
-| Hosting   | Netlify, deployed from `main`                                                                          |
+|            |                                                                                                 |
+| ---------- | ----------------------------------------------------------------------------------------------- |
+| Ramverk    | [TanStack Start](https://tanstack.com/start) — React med serverrendering och filbaserad routing |
+| Gränssnitt | React 19, Tailwind CSS 4                                                                        |
+| Bygge      | Vite 7                                                                                          |
+| Språk      | TypeScript                                                                                      |
+| Drift      | Netlify, driftsätts från `main`                                                                 |
 
-The project was originally generated with [Lovable](https://lovable.dev), and
-Simon still edits it there — see [Editing through Lovable](#editing-through-lovable).
+Projektet skapades ursprungligen med [Lovable](https://lovable.dev), och Simon
+redigerar det fortfarande där — se [Redigering via Lovable](#redigering-via-lovable).
 
-## Getting started
+## Kom igång
 
-Requires **Node 20.19+ or 22.12+** (Vite 7's minimum). The lockfile is
-`bun.lock`, so [Bun](https://bun.sh) is the canonical package manager, but npm
-works fine if you prefer it.
+Kräver **Node 20.19+ eller 22.12+** (minimum för Vite 7). Låsfilen är `bun.lock`,
+så [Bun](https://bun.sh) är den avsedda pakethanteraren, men npm fungerar lika
+bra.
 
 ```sh
-bun install          # or: npm install
+bun install          # eller: npm install
 bun run dev          # http://localhost:8080
 ```
 
-### Scripts
+### Kommandon
 
-| Script      | What it does                                              |
-| ----------- | --------------------------------------------------------- |
-| `dev`       | Development server with hot reload                        |
-| `build`     | Production build into `.output/`                          |
-| `typecheck` | `tsc --noEmit` — Vite does **not** typecheck, so run this |
-| `lint`      | ESLint, including Prettier as a rule                      |
-| `format`    | Rewrites the source with Prettier                         |
+| Kommando    | Vad det gör                                                    |
+| ----------- | -------------------------------------------------------------- |
+| `dev`       | Utvecklingsserver med direktuppdatering                        |
+| `build`     | Produktionsbygge till `.output/`                               |
+| `typecheck` | `tsc --noEmit` — Vite typkontrollerar **inte**, så kör det här |
+| `lint`      | ESLint, med Prettier som en regel                              |
+| `format`    | Formaterar om källkoden med Prettier                           |
 
-Run `typecheck`, `lint` and `build` before pushing. All three should be clean;
-`lint` currently reports six warnings, all inside `src/components/ui/`.
+Kör `typecheck`, `lint` och `build` innan du pushar. Alla tre ska vara rena;
+`lint` visar i dag sex varningar, samtliga inne i `src/components/ui/`.
 
-> **`bun run preview` does not work.** It looks for `dist/server/server.js`
-> while the build writes to `.output/`. Use `dev` to look at the site locally.
+> **`bun run preview` fungerar inte.** Det letar efter `dist/server/server.js`
+> medan bygget skriver till `.output/`. Använd `dev` för att titta på
+> webbplatsen lokalt.
 
-## Project structure
+## Så ligger projektet
 
 ```
-public/            Served as-is at the site root (favicon, robots.txt, sitemap.xml, og-image)
+public/            Serveras som det är från roten (favicon, robots.txt, sitemap.xml, og-image, typsnitt)
 src/
-  routes/          One file per URL — see src/routes/README.md
-    __root.tsx     The shell every page renders inside: <head>, header, footer
-  components/      SiteHeader, SiteFooter, PageHeader
-    ui/            An unused component library left over from the scaffold
+  routes/          En fil per adress — se src/routes/README.md
+    __root.tsx     Skalet varje sida ritas i: <head>, sidhuvud, sidfot
+  components/      SiteHeader, SiteFooter, PageHeader, MapEmbed
+    ui/            Ett oanvänt komponentbibliotek som följde med mallen
   lib/
-    site.ts        The clinic's details — phone, email, address, opening hours
-    services.ts    The four treatments and the price list
-  assets/          Images, imported by the pages that use them
-  styles.css       Tailwind theme: the navy / cream / gold palette and fonts
+    site.ts        Klinikens uppgifter — telefon, e-post, adress, öppettider
+    services.ts    De fyra behandlingarna och prislistan
+  assets/          Bilder, importeras av sidorna som använder dem
+  styles.css       Tailwind-temat: paletten i marinblått, gräddvitt och guld
+  fonts.css        Egna typsnitt, se Integritet nedan
 ```
 
-`src/routeTree.gen.ts` is generated by the router. Never edit it by hand; if a
-build rewrites it, that is normal.
+`src/routeTree.gen.ts` genereras av routern. Redigera den aldrig för hand — men
+committa den när ett bygge har skrivit om den, eftersom den bär typerna för
+sidornas laddade data.
 
-## Changing the content
+## Ändra innehållet
 
-Almost every routine change is one of these five.
+Nästan allt löpande arbete är något av det här.
 
-### The phone number, email, address or opening hours
+### Telefonnummer, e-post, adress eller öppettider
 
-Edit **`src/lib/site.ts`**. Every page reads from it, including the structured
-data search engines use, so one edit changes the whole site consistently.
+Ändra i **`src/lib/site.ts`**. Varje sida läser därifrån, även den strukturerade
+datan som sökmotorerna använder, så en ändring slår igenom överallt på samma
+gång.
 
-These values used to be typed out by hand in four separate files, and they drifted:
-the footer advertised closing at 16:00 while the contact page said 17:00. To stop
-that recurring, ESLint fails the build if a phone number, email address, street
-address or `HH:MM` time is written as a literal anywhere outside `site.ts`. If you
-hit that error, import the value instead of retyping it.
+De här uppgifterna stod tidigare inskrivna för hand i fyra olika filer, och de
+gled isär: sidfoten uppgav stängning 16:00 medan kontaktsidan sa 17:00. För att
+det inte ska hända igen stoppar ESLint bygget om ett telefonnummer, en
+e-postadress, en gatuadress eller en tid på formen `HH:MM` skrivs som text någon
+annanstans än i `site.ts`. Får du det felet: importera värdet i stället för att
+skriva det igen.
 
-### The prices
+### Priserna
 
-Edit `priceList` in **`src/lib/services.ts`**. The home page renders it.
+Ändra `priceList` i **`src/lib/services.ts`**. Startsidan visar listan.
 
-### A treatment
+### En behandling
 
-Each treatment is one entry in `services` in **`src/lib/services.ts`** — its
-`slug` becomes the URL, and the page at `/tjanster/<slug>` is generated from
-`what`, `how` and `benefits`.
+Varje behandling är en post i `services` i **`src/lib/services.ts`** — dess
+`slug` blir adressen, och sidan `/tjanster/<slug>` byggs av `what`, `how` och
+`benefits`.
 
-Adding one also means adding its URL to `public/sitemap.xml`.
+Lägger du till en behandling: lägg även in adressen i `public/sitemap.xml`.
 
-### A photo
+### En bild
 
-Import it in the page that uses it, or in `services.ts` for a treatment image.
+Importera den i sidan som använder den, eller i `services.ts` för en
+behandlingsbild.
 
-**Resize before committing.** Aim for roughly twice the largest size the image is
-ever displayed at, and save photographs as JPEG rather than PNG. The site once
-shipped 7.6 MB of images — including a 3024×4032 phone photo displayed in a
-narrow column, and a 2.3 MB PNG shown at 320 pixels — which is a slow page on a
-phone away from wifi. The same images are now 637 KB.
+**Ändra storlek innan du committar.** Sikta på ungefär dubbelt så många bildpunkter
+som den största storlek bilden visas i, och spara fotografier som JPEG, inte PNG.
+Webbplatsen skickade en gång 7,6 MB bilder — bland annat ett mobilfoto på
+3024×4032 som visades i en smal spalt, och en PNG på 2,3 MB som visades i 320
+bildpunkters bredd — vilket är en långsam sida för någon som sitter på mobilnätet.
+Samma bilder väger i dag 637 kB.
 
-Always give an `<img>` explicit `width` and `height` so the page does not jump
-around while it loads.
+Ange alltid `width` och `height` på `<img>` så att sidan inte hoppar medan den
+laddar.
 
-### Wording on a page
+### Texten på en sida
 
-The text lives directly in the page's file under `src/routes/`.
+Den ligger direkt i sidans fil under `src/routes/`.
 
-## Search engine setup
+## Sökmotorer
 
-`src/lib/site.ts` also produces the structured data ([schema.org](https://schema.org))
-that describes the clinic to Google: address, phone, price range and opening
-hours, plus a record per treatment. For a single-location business this is what
-feeds the map results, and because it is generated from the same values the pages
-render, it cannot drift out of date.
+`src/lib/site.ts` genererar också den strukturerade datan
+([schema.org](https://schema.org)) som beskriver kliniken för Google: adress,
+telefon, prisnivå och öppettider, plus en post per behandling och brödsmulor.
+Eftersom den byggs av samma värden som sidorna visar kan de inte bli osams.
 
-Also in place: a canonical URL and `og:` tags on every page (so shared links
-preview properly), `public/robots.txt`, `public/sitemap.xml`, and the favicon —
-the oak leaf from the logo, since _ek_ means oak.
+Vidare finns kanonisk adress och `og:`-taggar på varje sida, `public/robots.txt`,
+`public/sitemap.xml` och en favicon — eklövet ur logotypen, eftersom _ek_ är ek.
 
-## Deployment
+**[SEO.md](SEO.md)** beskriver det som inte går att lösa i koden: Google
+Företagsprofil, Search Console, statistik och recensioner. Det mesta av det
+kräver att Simon loggar in någonstans.
 
-Netlify builds from `main`. Push, and the site updates in about a minute.
+## Integritet
 
-There are no Netlify settings in this repository — no `netlify.toml` — so the
-build command and publish directory are configured in the Netlify UI.
+Webbplatsen skickar ingenting till tredje part innan besökaren ber om det. Det
+är ett medvetet val — det här är en vårdgivare, och vilken behandlingssida någon
+läser säger något om personens hälsa.
 
-Two things worth knowing:
+- **Typsnitten** ligger på vår egen server (`public/fonts`, inlagda i
+  `src/fonts.css`) i stället för hos Google. Cormorant Garamond och Inter är
+  variabla typsnitt, så en fil per familj räcker för hela viktomfånget.
+- **Kartan** på kontaktsidan laddas först när besökaren klickar på "Visa karta".
+  Adressen står läsbar oavsett.
 
-- **Private repositories allow only one Git contributor** on Netlify's free
-  plan. When a second person commits, deploys fail with _"unrecognized Git
-  contributor"_. This repository is public, which removes the limit.
-- A failed deploy sometimes stays failed on retry. Pushing a new commit forces a
-  fresh evaluation.
+Lägger någon till statistik eller inbäddat innehåll försvinner den egenskapen,
+och då krävs en samtyckesruta. Se SEO.md innan du gör det.
 
-`vite.config.ts` targets Cloudflare Workers via nitro, which does not match
-Netlify. It works, but it is a leftover from the scaffold rather than a
-decision — worth reconciling if anyone touches the build setup.
+## Driftsättning
 
-## Editing through Lovable
+Netlify bygger från `main`. Pusha, så uppdateras webbplatsen på ungefär en minut.
 
-Simon maintains the site through Lovable, so treat it as a second author with
-write access.
+Det finns inga Netlify-inställningar i kodförrådet — ingen `netlify.toml` — så
+byggkommando och publiceringskatalog är konfigurerade i Netlifys gränssnitt.
 
-The `*.asset.json` files beside the images are Lovable's asset registry, each
-recording the original upload. **Do not delete them when optimising an image** —
-they are how Lovable finds the original.
+Två saker värda att känna till:
 
-One known consequence: the registry still points at the full-size originals while
-this repository carries optimised copies. If the images ever grow back, a Lovable
-asset resync is the likely cause.
+- **Privata kodförråd tillåter bara en bidragsgivare** på Netlifys gratisplan.
+  När en andra person committar misslyckas driftsättningen med _"unrecognized
+  Git contributor"_. Det här kodförrådet är publikt, vilket tar bort gränsen.
+- En misslyckad driftsättning förblir ibland misslyckad när man försöker igen.
+  En ny commit tvingar fram en ny bedömning.
 
-## Conventions
+`vite.config.ts` är inställd på Cloudflare Workers via nitro, vilket inte
+stämmer med Netlify. Det fungerar, men är en rest från mallen snarare än ett
+beslut — värt att reda ut om någon ändå rör byggkedjan.
 
-- **Prettier** with a 100-character width, double quotes, semicolons. ESLint runs
-  it as a rule, so `lint` fails on unformatted code.
-- **TypeScript strict mode**, with unused locals and parameters treated as errors.
-  Prefix a genuinely unused parameter with `_`.
-- Swedish for anything a visitor reads; English for code, comments and commits.
+## Redigering via Lovable
+
+Simon underhåller webbplatsen via Lovable, så betrakta Lovable som en andra
+författare med skrivrättigheter.
+
+Filerna `*.asset.json` bredvid bilderna är Lovables bildregister och pekar ut
+originalet för varje bild. **Ta inte bort dem när du optimerar en bild** — det är
+så Lovable hittar originalet.
+
+En känd följd: registret pekar fortfarande på originalen i full storlek medan
+kodförrådet innehåller förminskade kopior. Om bilderna någon gång växer tillbaka
+är en omsynkning från Lovable den troliga orsaken.
+
+## Konventioner
+
+- **Prettier** med 100 teckens bredd, dubbla citattecken och semikolon. ESLint
+  kör den som en regel, så `lint` misslyckas på oformaterad kod.
+- **TypeScript i strikt läge**, där oanvända variabler och parametrar är fel.
+  Sätt ett understreck först på en parameter som verkligen inte ska användas.
+- Svenska i allt en besökare läser och i dokumentationen. Engelska i kod,
+  kodkommentarer och commit-meddelanden.
