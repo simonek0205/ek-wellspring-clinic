@@ -72,7 +72,14 @@ export function SiteFooter() {
           className="underline decoration-cream/30 underline-offset-2 transition-colors hover:text-cream"
         >
           Statistik
-        </button>
+        </button>{" "}
+        ·{" "}
+        <Link
+          to="/integritet"
+          className="underline decoration-cream/30 underline-offset-2 transition-colors hover:text-cream"
+        >
+          Integritet
+        </Link>
       </div>
     </footer>
   );

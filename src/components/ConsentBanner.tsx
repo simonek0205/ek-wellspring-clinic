@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import {
   CONSENT_REOPEN_EVENT,
   readConsent,
@@ -43,7 +44,13 @@ export function ConsentBanner() {
         <p className="max-w-2xl text-sm leading-relaxed text-foreground">
           Vi mäter besöken med Google Analytics för att veta vilka sidor som används. Mätningen
           startar först om du säger ja — väljer du nej mäts ingenting och sajten fungerar precis som
-          vanligt. Valet sparas som en liten fil i din webbläsare.
+          vanligt. Valet sparas som en liten fil i din webbläsare.{" "}
+          <Link
+            to="/integritet"
+            className="text-navy underline underline-offset-2 hover:text-navy-deep"
+          >
+            Läs mer
+          </Link>
         </p>
         <div className="flex shrink-0 gap-3">
           <button

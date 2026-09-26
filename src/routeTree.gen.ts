@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BehandlingRouteImport } from './routes/behandling'
+import { Route as IntegritetRouteImport } from './routes/integritet'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as OmOssRouteImport } from './routes/om-oss'
 import { Route as TjansterIndexRouteImport } from './routes/tjanster.index'
@@ -24,6 +25,11 @@ const IndexRoute = IndexRouteImport.update({
 const BehandlingRoute = BehandlingRouteImport.update({
   id: '/behandling',
   path: '/behandling',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntegritetRoute = IntegritetRouteImport.update({
+  id: '/integritet',
+  path: '/integritet',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KontaktRoute = KontaktRouteImport.update({
@@ -50,6 +56,7 @@ const TjansterSlugRoute = TjansterSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/behandling': typeof BehandlingRoute
+  '/integritet': typeof IntegritetRoute
   '/kontakt': typeof KontaktRoute
   '/om-oss': typeof OmOssRoute
   '/tjanster/$slug': typeof TjansterSlugRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/behandling': typeof BehandlingRoute
+  '/integritet': typeof IntegritetRoute
   '/kontakt': typeof KontaktRoute
   '/om-oss': typeof OmOssRoute
   '/tjanster/$slug': typeof TjansterSlugRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/behandling': typeof BehandlingRoute
+  '/integritet': typeof IntegritetRoute
   '/kontakt': typeof KontaktRoute
   '/om-oss': typeof OmOssRoute
   '/tjanster/$slug': typeof TjansterSlugRoute
@@ -77,6 +86,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/behandling'
+    | '/integritet'
     | '/kontakt'
     | '/om-oss'
     | '/tjanster/$slug'
@@ -85,6 +95,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/behandling'
+    | '/integritet'
     | '/kontakt'
     | '/om-oss'
     | '/tjanster/$slug'
@@ -93,6 +104,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/behandling'
+    | '/integritet'
     | '/kontakt'
     | '/om-oss'
     | '/tjanster/$slug'
@@ -102,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BehandlingRoute: typeof BehandlingRoute
+  IntegritetRoute: typeof IntegritetRoute
   KontaktRoute: typeof KontaktRoute
   OmOssRoute: typeof OmOssRoute
   TjansterSlugRoute: typeof TjansterSlugRoute
@@ -122,6 +135,13 @@ declare module '@tanstack/react-router' {
       path: '/behandling'
       fullPath: '/behandling'
       preLoaderRoute: typeof BehandlingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/integritet': {
+      id: '/integritet'
+      path: '/integritet'
+      fullPath: '/integritet'
+      preLoaderRoute: typeof IntegritetRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kontakt': {
@@ -158,6 +178,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BehandlingRoute: BehandlingRoute,
+  IntegritetRoute: IntegritetRoute,
   KontaktRoute: KontaktRoute,
   OmOssRoute: OmOssRoute,
   TjansterSlugRoute: TjansterSlugRoute,
