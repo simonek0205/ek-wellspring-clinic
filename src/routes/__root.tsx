@@ -11,7 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { initAnalytics, sendPageView } from "../lib/analytics";
+import { initAnalytics } from "../lib/analytics";
 import { ConsentBanner } from "../components/ConsentBanner";
 import { SiteHeader } from "../components/SiteHeader";
 import { SiteFooter } from "../components/SiteFooter";
@@ -146,20 +146,12 @@ function RootShell({ children }: { children: ReactNode }) {
 }
 
 function RootComponent() {
-  const router = useRouter();
-
   // Measurement starts only after consent. The loader runs here — not inside the
   // banner's "yes" button — so a visitor who said yes on an earlier visit is
-  // measured from their very first page on this one. The router subscription
-  // sends a pageview on every navigation, first load included, because the
-  // default one is switched off (see lib/analytics.ts).
+  // measured from their very first page on this one.
   useEffect(() => {
     initAnalytics();
-    const unsubscribe = router.subscribe("onResolved", () => {
-      sendPageView(location.pathname);
-    });
-    return unsubscribe;
-  }, [router]);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">

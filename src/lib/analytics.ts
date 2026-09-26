@@ -65,17 +65,21 @@ function loadGtag() {
   // The queue must exist before the script tag lands, so the config call below
   // is never lost even if the script itself is blocked (adblockers, offline).
   window.dataLayer = window.dataLayer || [];
-  window.gtag = function gtag(...args: unknown[]) {
-    window.dataLayer.push(args);
+  // gtag.js only acts on entries that are an `arguments` object. A rest-args
+  // array looks identical in the queue and is silently ignored, so this must
+  // stay a plain function using `arguments`.
+  window.gtag = function gtag() {
+    // eslint-disable-next-line prefer-rest-params -- see above
+    window.dataLayer.push(arguments);
   };
   window.gtag("js", new Date());
   window.gtag("config", GA_MEASUREMENT_ID, {
-    // No advertising features, and no automatic pageview — this site sends its
-    // own on every navigation, which is what keeps the counts right on a site
-    // that navigates without reloading.
+    // No advertising features. The page view is left to Google: config sends
+    // one for the page the visitor is on, and its history tracking sends one
+    // for every navigation after that on this site that never reloads. Sending
+    // our own as well counted every navigation twice.
     allow_google_signals: false,
     allow_ad_personalization_signals: false,
-    send_page_view: false,
   });
 
   const script = document.createElement("script");
@@ -120,11 +124,4 @@ export function reopenConsent() {
     // Storage unavailable: the banner asks again anyway on the next visit.
   }
   window.dispatchEvent(new Event(CONSENT_REOPEN_EVENT));
-}
-
-/** Sends a pageview. Silent no-op unless consent exists and the script is loaded — a blocked script must never produce an error on the page. */
-export function sendPageView(path: string) {
-  if (readConsent() !== "granted") return;
-  if (!document.getElementById("gtag-script")) return;
-  window.gtag?.("event", "page_view", { page_path: path });
 }
