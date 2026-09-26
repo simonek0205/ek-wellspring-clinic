@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import logoAsset from "@/assets/ek-kiropraktik-logo.jpg";
+import { reopenConsent } from "@/lib/analytics";
 import { addressLine, clinic, emailHref } from "@/lib/site";
 
 export function SiteFooter() {
@@ -64,7 +65,14 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-cream/10 py-6 text-center text-xs text-cream/60">
-        © {new Date().getFullYear()} {clinic.name}. Alla rättigheter förbehållna.
+        © {new Date().getFullYear()} {clinic.name}. Alla rättigheter förbehållna.{" "}
+        <button
+          type="button"
+          onClick={reopenConsent}
+          className="underline decoration-cream/30 underline-offset-2 transition-colors hover:text-cream"
+        >
+          Statistik
+        </button>
       </div>
     </footer>
   );
